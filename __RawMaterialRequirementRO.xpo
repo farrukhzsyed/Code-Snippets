@@ -1,0 +1,52 @@
+﻿Exportfile for AOT version 1.0 or later
+Formatversion: 1
+
+***Element: SRO
+
+; Microsoft Dynamics AX ROLE : _RawMaterialRequirementRO unloaded
+; --------------------------------------------------------------------------------
+  VERSION 1
+  
+  ROLE #_RawMaterialRequirementRO
+    PROPERTIES
+      Name                #_RawMaterialRequirementRO
+      Label               #_RawMaterialRequirementRO
+      Description         #_RawMaterialRequirementRO
+      Origin              #{DCF80D2F-341F-4D56-B901-9DF8EEF5E927}
+    ENDPROPERTIES
+    
+    DUTIES #Duties
+    ENDDUTIES
+    
+  PRIVILEGES #Privileges
+    PRIVILEGE #_GoodsRequiredControlRawMat_FV
+      PROPERTIES
+        Name                #_GoodsRequiredControlRawMat_FV
+      ENDPROPERTIES
+      
+    ENDPRIVILEGE
+    
+ENDPRIVILEGES
+
+PERMISSIONSET #Permissions
+  PROPERTIES
+  ENDPROPERTIES
+  
+  TABLES #Tables
+  ENDTABLES
+  
+FORMS #Forms
+ENDFORMS
+
+SERVERMETHODS #Server Methods
+ENDSERVERMETHODS
+
+ENDPERMISSIONSET
+
+SUBROLES #Sub Roles
+ENDSUBROLES
+
+ENDROLE
+
+
+***Element: END
