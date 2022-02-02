@@ -1,0 +1,39 @@
+Carry out the following steps in order to complete this recipe:
+
+1. In the AOT, create a new job named SendCustReminderEmail with the following 
+code snippet (replace the customer account number with your own):
+
+
+static void SendCustReminderEmail(Args _args)
+{
+ CustTable custTable;
+ Map mappings;
+ custTable = custTable::find('US-027');
+ mappings = new Map(Types::String, Types::String);
+ mappings.insert('customer', custTable.name());
+ mappings.insert('company', CompanyInfo::find().Name);
+ mappings.insert('user', HcmWorker::find(
+ DirPersonUser::current().worker()).name());
+Chapter 6
+283
+ SysINetMail::sendEMail(
+ 'Reminder',
+ custTable.languageId(), 
+ custTable.email(),
+ mappings);
+}
+
+
+2. Run the job and a message similar to what is shown in the following screenshot will 
+appear on the screen:
+
+
+In this recipe, we prepare a number of key-value mappings that will be inserted into the e-mail 
+template. Then, we use the sendEMail() method of the SysINetMail class to send an 
+e-mail using Outlook. This method accepts the following arguments:
+> The name of the template
+> The customer's language code
+> The customer's e-mail address
+> The prepared mapping
+Note that depending on the version of Outlook, the To... field may not be populated automatically 
+with the customer's e-mail address. This is due to a MAPI compatibility issue.

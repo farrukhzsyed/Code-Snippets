@@ -1,0 +1,25 @@
+void openFolder()
+{
+
+    /*switch ()
+ {
+     case :
+         break;
+
+     case :
+         break;
+
+ }
+    */
+
+    if (ServerReferences.SupServerRef == SupServerRef::Server)
+    {
+        if (WinAPI::folderExists(ServerReferences.location) )
+        {
+             WinAPI::shellExecute(ServerReferences.location);
+        }
+    }
+
+    if (ServerReferences.SupServerRef == SupServerRef::URL)
+        infolog.urlLookup(ServerReferences.location);
+}

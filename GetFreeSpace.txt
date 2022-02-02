@@ -1,0 +1,29 @@
+void getfree()
+{
+  //   ServerReferences ServerReferencesLoc;
+//    counter x;
+     ;
+//     ttsbegin;
+//     while select forupdate ServerReferencesLoc where ServerReferencesLoc.Enabled && ServerReferencesLoc.SystemCheckType == SystemCheckType::CheckFreeSpace
+//     {
+//              x++;
+//              ServerReferencesLoc.FreeKB   = ServerReferencesLoc.getDiskFreeSpaceInKb();
+//              ServerReferencesLoc.TotalKB  = ServerReferencesLoc.getDiskTotalSpaceInKb();
+//              ServerReferencesLoc.doupdate();
+//     }
+//     ttscommit;
+
+ //    if (x)
+ //      ServerReferences_ds.executeQuery();
+    ServerReferences.FreeLastCalc= datetimeutil::getSystemDateTime();
+    ServerReferences.FreeKB   = ServerReferences.getDiskFreeSpaceInKb();
+    ServerReferences.TotalKB  = ServerReferences.getDiskTotalSpaceInKb();
+    info(strfmt("Location : '%1'",ServerReferences.Location));
+    info(strfmt("Total: %1 Gb",  (ServerReferences.TotalKB /1000), (ServerReferences.FreeKB  /1000) ));
+    info(strfmt("Free : %2 Gb ", (ServerReferences.TotalKB /1000), (ServerReferences.FreeKB  /1000) ));
+    ServerReferences.doupdate();
+
+    ServerReferences_ds.reread();
+    ServerReferences_ds.refresh();
+
+}

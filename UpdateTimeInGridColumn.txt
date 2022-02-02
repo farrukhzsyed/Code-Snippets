@@ -1,0 +1,6 @@
+ void UpdateLTNow()
+{
+    SupportTasks::UpdateLTNow(SupportTasks.Seq);
+    SupportTasks_ds.reread();
+    SupportTasks_ds.refresh();
+}
